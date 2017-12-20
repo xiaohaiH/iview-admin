@@ -6,6 +6,7 @@ import packjson from '../../package.json';
 let util = {
 
 };
+/* 修改标题 */
 util.title = function (title) {
     title = title || 'iView admin';
     window.document.title = title;
@@ -22,6 +23,7 @@ util.ajax = axios.create({
     timeout: 30000
 });
 
+/* 判断 targetArr 是否包含 arr 中的所有元素 */
 util.inOf = function (arr, targetArr) {
     let res = true;
     arr.forEach(item => {
@@ -32,6 +34,7 @@ util.inOf = function (arr, targetArr) {
     return res;
 };
 
+/* 判断 targetArr 是否包含 ele 中的所有元素 */
 util.oneOf = function (ele, targetArr) {
     if (targetArr.indexOf(ele) >= 0) {
         return true;
@@ -40,6 +43,7 @@ util.oneOf = function (ele, targetArr) {
     }
 };
 
+/* 做权限判断的 */
 util.showThisRoute = function (itAccess, currentAccess) {
     if (typeof itAccess === 'object' && Array.isArray(itAccess)) {
         return util.oneOf(currentAccess, itAccess);
@@ -48,6 +52,7 @@ util.showThisRoute = function (itAccess, currentAccess) {
     }
 };
 
+/* 获取路由对象 */
 util.getRouterObjByName = function (routers, name) {
     if (!name || !routers || !routers.length) {
         return null;
